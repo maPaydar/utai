@@ -1,4 +1,4 @@
-package ir.ac.ut.ai.base;
+package ir.ut.ai.base;
 
 import java.util.ArrayList;
 import java.util.HashMap;

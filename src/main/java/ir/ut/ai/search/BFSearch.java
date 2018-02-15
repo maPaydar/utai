@@ -1,8 +1,8 @@
-package ir.ac.ut.ai.search;
+package ir.ut.ai.search;
 
-import ir.ac.ut.ai.base.Action;
-import ir.ac.ut.ai.base.Node;
-import ir.ac.ut.ai.base.Problem;
+import ir.ut.ai.base.Action;
+import ir.ut.ai.base.Node;
+import ir.ut.ai.base.Problem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,11 @@ public class BFSearch<S, A> extends SearchBase<S, A> {
     }
 
     @Override
+    protected List<Node<S, A>> solution(Node<S, A> node) {
+        return explored;
+    }
+
+    @Override
     public List<Node<S, A>> run() {
         Node node = problem.getInitialNode();
         if (problem.isGoal(node)) {
@@ -27,12 +32,12 @@ public class BFSearch<S, A> extends SearchBase<S, A> {
             }};
         }
         frontier.add(node);
-        while (true) {
-            if (frontier.isEmpty()) {
-                return new ArrayList<>();
-            }
-            Node cNode = frontier.remove(frontier.size() - 1);
+        while (!frontier.isEmpty()) {
+            Node cNode = frontier.remove(0);
             explored.add(cNode);
+            if (problem.isGoal(cNode)) {
+                return solution(cNode);
+            }
             ArrayList<Action<A>> actionList = problem.getActions().get(cNode);
             if (actionList == null)
                 actionList = new ArrayList<>();
@@ -40,12 +45,11 @@ public class BFSearch<S, A> extends SearchBase<S, A> {
                 Node nextNode = nexNode(cNode, action);
                 if (nextNode != null) {
                     if (!frontier.contains(nextNode) || !explored.contains(nextNode)) {
-                        if (problem.isGoal(nextNode))
-                            return solution(nextNode);
                         frontier.add(nextNode);
                     }
                 }
             }
         }
+        return new ArrayList<>();
     }
 }

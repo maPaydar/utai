@@ -1,4 +1,4 @@
-package ir.ac.ut.ai.base;
+package ir.ut.ai.base;
 
 public class State<S> {
 

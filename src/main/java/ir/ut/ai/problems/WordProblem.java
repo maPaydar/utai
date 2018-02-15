@@ -1,8 +1,8 @@
-package ir.ac.ut.ai.problems;
+package ir.ut.ai.problems;
 
-import ir.ac.ut.ai.base.Action;
-import ir.ac.ut.ai.base.Node;
-import ir.ac.ut.ai.base.Problem;
+import ir.ut.ai.base.Action;
+import ir.ut.ai.base.Node;
+import ir.ut.ai.base.Problem;
 
 import java.util.ArrayList;
 import java.util.Map;

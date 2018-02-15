@@ -1,9 +1,8 @@
-package ir.ac.ut.ai.search;
+package ir.ut.ai.search;
 
-import ir.ac.ut.ai.base.Action;
-import ir.ac.ut.ai.base.Node;
-import ir.ac.ut.ai.base.Problem;
-import ir.ac.ut.ai.base.State;
+import ir.ut.ai.base.Action;
+import ir.ut.ai.base.Node;
+import ir.ut.ai.base.Problem;
 
 import java.util.ArrayList;
 import java.util.List;
